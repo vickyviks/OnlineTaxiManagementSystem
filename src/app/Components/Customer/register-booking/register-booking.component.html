@@ -1,0 +1,89 @@
+<div class="py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <span class="anchor" id="formLogin"></span>
+
+            <!-- form card login -->
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">Book Taxi</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" #registerForm="ngForm">
+                        <div class="form-group">
+                            <label for="uname1">FromDate</label>
+                            <input type="text" [minDate]="minDate" bsDatepicker
+                                [(ngModel)]="customerService.bookingData.FromDate" name="FromDate"
+                                class="form-control rounded-0" required readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uname1">ToDate</label>
+                            <input type="text" [minDate]="minToDate" bsDatepicker
+                                [(ngModel)]="customerService.bookingData.ToDate" name="ToDate"
+                                class="form-control rounded-0" #toDate="ngModel"
+                                [class.is-invalid]="toDate.invalid && toDate.touched" required>
+                            <small class="text-danger" [class.d-none]="toDate.valid || toDate.untouched">To Date is
+                                required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="uname1">BookTime</label>
+                            <input type="time" [(ngModel)]="customerService.bookingData.BookTime" name="BookTime"
+                                class="form-control rounded-0" #booktime="ngModel"
+                                [class.is-invalid]="booktime.invalid && booktime.touched" required>
+                            <small class="text-danger" [class.d-none]="booktime.valid || booktime.untouched">Book Time
+                                is
+                                required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="uname1">DropTime</label>
+                            <input type="time" [(ngModel)]="customerService.bookingData.DropTime" name="DropTime"
+                                class="form-control rounded-0" #droptime="ngModel"
+                                [class.is-invalid]="droptime.invalid && droptime.touched" required>
+                            <small class="text-danger" [class.d-none]="droptime.valid || droptime.untouched">Drop Time
+                                is
+                                required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter Source City</label>
+                            <input type="text" [(ngModel)]="customerService.bookingData.PickupPoint" name="DropTime"
+                                class="form-control rounded-0" required readonly>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="uname1">Destination</label>
+                            <select name="source" [(ngModel)]="customerService.bookingData.DropPoint"
+                                class="custom-select" required>
+                                <option value="" selected disabled>---Select DropPoint---</option>
+                                <option>Jaipur</option>
+                                <option>Jodhpur</option>
+                                <option>Udaipur</option>
+                                <option>Kota</option>
+                                <option>Bikaner</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="uname1">Employee Id</label>
+                            <input type="number" [(ngModel)]="customerService.bookingData.employeeId" readonly
+                                name="employeeId" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="uname1">Customer Id</label>
+                            <input type="number" [(ngModel)]="customerService.bookingData.customerId" readonly
+                                name="customerId" class="form-control rounded-0" required>
+                        </div>
+
+                        <button type="button" [disabled]="registerForm.form.invalid" (click)="BookTaxi(registerForm)"
+                            class="btn btn-primary float-right">BookTaxi</button>
+                    </form>
+                </div>
+                <!--/card-block-->
+            </div>
+            <!-- /form card login -->
+
+        </div>
+
+
+    </div>
+
+</div>

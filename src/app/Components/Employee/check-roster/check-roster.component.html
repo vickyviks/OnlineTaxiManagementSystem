@@ -1,0 +1,22 @@
+<table class="table table-striped" style="margin-top: 20px">
+    <thead>
+      <tr>
+        <th scope="col">Roster Id</th>
+        <th scope="col">From Date</th>
+        <th scope="col">To Date</th>
+        <th scope="col">In Time</th>
+        <th scope="col">Out Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let roster of empRosters">
+        <th scope="row">{{roster.RosterID}}</th>
+        <td>{{roster.FromDate | date:'shortDate'}}</td>
+        <td>{{roster.ToDate | date:'shortDate'}}</td>
+        <td>{{roster.InTime}}</td>
+        <td>{{roster.OutTime}}</td>
+      </tr>
+    </tbody>
+    
+  
+  </table>
